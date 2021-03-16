@@ -35,7 +35,7 @@ result, err := stbz.API(Method, api, queryMap, bodyMap)
 #### GET请求，query传参（form-data格式）
 
 ```golang
-config := stbz.NewConfig("AccessKey", "SecretKey")
+config := stbz.NewConfig(StbzApi.ApiHost,"AccessKey", "SecretKey")
 stbz.SetConfig(config)
 result, err := stbz.API(Method.GET, "/v2/Goods/Lists", map[string]string{"page": "1", "limit": "10", "source": "0", "search_words": "牙线"}, map[string]interface{}{})
 
@@ -44,7 +44,7 @@ fmt.Println(result, err)
 ```
 #### GET请求，body传参（json格式）
 ```golang
-config := stbz.NewConfig("AccessKey", "SecretKey")
+config := stbz.NewConfig(StbzApi.ApiHost,"AccessKey", "SecretKey")
 stbz.SetConfig(config)
 result, err = stbz.API(Method.GET, "/v2/order", map[string]string{}, g.Map{"page": 1, "limit": 10, "search": g.Map{"goodsName": "蒙牛"}})
 fmt.Println(result, err)
@@ -53,7 +53,7 @@ fmt.Println(result, err)
 
 ### POST请求，body传参（json格式）
 ```golang
-config := stbz.NewConfig("AccessKey", "SecretKey")
+config := stbz.NewConfig(StbzApi.ApiHost,"AccessKey", "SecretKey")
 stbz.SetConfig(config)
 result, err = stbz.API(
     Method.GET,
